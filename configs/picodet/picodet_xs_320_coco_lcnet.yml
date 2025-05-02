@@ -1,5 +1,5 @@
 _BASE_: [
-  '../datasets/coco_detection.yml',
+  '../datasets/roadsign_voc.yml',
   '../runtime.yml',
   '_base_/picodet_v2.yml',
   '_base_/optimizer_300e.yml',
@@ -11,7 +11,7 @@ weights: output/picodet_xs_320_coco/best_model
 find_unused_parameters: True
 use_ema: true
 epoch: 300
-snapshot_epoch: 10
+snapshot_epoch: 50
 
 LCNet:
   scale: 0.35
@@ -36,7 +36,7 @@ TrainReader:
   batch_size: 64
 
 LearningRate:
-  base_lr: 0.32
+  base_lr: 0.04
   schedulers:
   - !CosineDecay
     max_epochs: 300
